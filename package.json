@@ -7,9 +7,9 @@
   "private": "true"
   },
   "scripts": {
-    "install": "npm install --legacy-peer-deps",
+    "postinstall": "echo 'Install completed'",
     "build": "next build",
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "start": "next start",
     "lint": "next lint"
   },
