@@ -8,12 +8,17 @@ Setup and installation instructions|
 |-npm install axios @tanstack/react-query apexcharts react-apexcharts
 |-npm run dev
 
-Team member contributions|
-|Azarcon, Jessa G. - Encoder, Presentor
-|Baniel, Christine E. - Setup, Encoder
-|Geremias, Darrein G. - Encoder, Presentor
-|Monticalbo, Jimwel O. - Encoder, Presentor
-|Victoria, John Mark - Encoder, Presentor
+Team member contributions
+
+Azarcon, Jessa G. - Encoder, Presentor
+
+Baniel, Christine E. - Setup, Encoder
+
+Geremias, Darrein G. - Encoder, Presentor
+
+Monticalbo, Jimwel O. - Encoder, Presentor
+
+Victoria, John Mark - Encoder, Presentor
 
 Deployed URL|
 We tried to deploy it but there is an error the we couldn’t solved.
