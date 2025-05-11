@@ -1,7 +1,11 @@
 {
   "name": "webtech_two",
   "version": "0.1.0",
-  "private": true,
+  "engines": {
+    "node": ">=20.x",
+    "npm": ">=9.x",
+  "private": true
+  },
   "scripts": {
     "install": "npm install --legacy-peer-deps",
     "build": "next build",
