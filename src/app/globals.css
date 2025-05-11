@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background:#070707;
+  --foreground:#ededed;
 }
 
 @theme inline {
@@ -14,8 +14,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ededed;
+    --foreground:#ededed;
   }
 }
 
@@ -23,4 +23,12 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-image: url('/images/201571.png');
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position: center;
+  background-attachment: fixed; /* optional - makes it fixed while scrolling */
 }
