@@ -20,7 +20,8 @@ Monticalbo, Jimwel O. - Encoder, Presentor
 
 Victoria, John Mark - Encoder, Presentor
 
-Deployed URL|
+Deployed URL
+
 We tried to deploy it but there is an error the we couldn’t solved.
 https://webtech-finals.vercel.app/
 
