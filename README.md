@@ -9,7 +9,10 @@ Next.js Setup and Installation
 -npm run dev
 
 Team member contributions
-
-
+Azarcon, Jessa G - Encoder, Presentor
+Baniel, Christine E - Setup, Encoder
+Geremias, Darrein G - Encoder, Presentor
+Monticalbo, Jimwel O - Encoder, Presentor
+Victoria, John Mark - Encoder, Presentor
 
 Deployed URL
