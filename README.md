@@ -16,3 +16,9 @@ Team member contributions|
 |Victoria, John Mark - Encoder, Presentor
 
 Deployed URL|
+We tried to deploy it but there is an error the we couldn’t solved.
+https://webtech-finals.vercel.app/
+
+We decided to record our project to show the whole interface. 
+https://drive.google.com/file/d/1EMCduD40uiE35yE3KuXC0Jm5Dgpz8CC6/view?usp=sharing
+
