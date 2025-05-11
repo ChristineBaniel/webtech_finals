@@ -1,9 +1,29 @@
 import { fetchPost, fetchPostComments } from '@/hooks/useFetchData'
 import Link from 'next/link'
 
-export default async function PostDetail({ params }: { params: { postId: string } }) {
-  const post = await fetchPost(params.postId)
-  const comments = await fetchPostComments(params.postId)
+interface Comment {
+  id: number
+  name: string
+  email: string
+  body: string
+}
+
+interface Post {
+  id: number
+  title: string
+  body: string
+  userId: number
+}
+
+interface PostPageProps {
+  params: {
+    postId: string
+  }
+}
+
+export default async function PostDetail({ params }: PostPageProps) {
+  const post: Post = await fetchPost(params.postId)
+  const comments: Comment[] = await fetchPostComments(params.postId)
 
   return (
     <div className="space-y-8">
@@ -15,7 +35,7 @@ export default async function PostDetail({ params }: { params: { postId: string 
           <div className="mt-6">
             <Link 
               href={`/users/${post.userId}`}
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-green bg-green-600 hover:bg-green-700"
+              className="px-3 py-2 rounded-md text-sm font-medium text-black hover:text-gray-100 hover:bg-[#F59E0B]/90 transition-colors"
             >
               View Profile
             </Link>
@@ -27,7 +47,7 @@ export default async function PostDetail({ params }: { params: { postId: string 
         <h2 className="text-xl font-bold text-gray-900 mb-6">Comments</h2>
         
         <div className="space-y-4">
-          {comments.map((comment: any) => (
+          {comments.map((comment) => (
             <div key={comment.id} className="bg-white/70 backdrop-blur-sm rounded-lg p-5 mb-4 shadow-sm">
               <div className="p-6">
                 <h3 className="text-lg font-medium text-gray-900">{comment.name}</h3>

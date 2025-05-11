@@ -4,7 +4,7 @@
   "engines": {
     "node": ">=20.x",
     "npm": ">=9.x",
-  "private": true
+  "private": "true"
   },
   "scripts": {
     "install": "npm install --legacy-peer-deps",
