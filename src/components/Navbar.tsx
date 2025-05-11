@@ -1,5 +1,4 @@
-// components/Navbar.js (or Navbar.tsx for TypeScript)
-import Link from 'next/link';  // This should be at the very top
+import Link from 'next/link';
 
 export default function Navbar() {
   return (

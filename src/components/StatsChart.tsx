@@ -2,8 +2,8 @@
 
 import dynamic from 'next/dynamic'
 import { ApexOptions } from 'apexcharts'
+import { useEffect, useState } from 'react'
 
-// Dynamic import to avoid SSR issues
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 interface StatsChartProps {
@@ -14,13 +14,35 @@ interface StatsChartProps {
   }
 }
 
-export default function StatsChart({ stats }: StatsChartProps) {
+export default function StatsChart({ stats: initialStats }: StatsChartProps) {
+  const [stats, setStats] = useState(initialStats)
+  const [lastUpdated, setLastUpdated] = useState(new Date())
+
+  // Update chart data when props change
+  useEffect(() => {
+    setStats(initialStats)
+    setLastUpdated(new Date())
+  }, [initialStats])
+
   const barChartOptions: ApexOptions = {
     chart: {
       type: 'bar',
       height: 350,
       toolbar: {
         show: false,
+      },
+      animations: {
+        enabled: true,
+        easing: 'easeinout',
+        speed: 800,
+        animateGradually: {
+          enabled: true,
+          delay: 150,
+        },
+        dynamicAnimation: {
+          enabled: true,
+          speed: 350,
+        },
       },
     },
     plotOptions: {
@@ -49,6 +71,21 @@ export default function StatsChart({ stats }: StatsChartProps) {
       opacity: 1,
     },
     colors: ['#3B82F6', '#10B981', '#F59E0B'],
+    tooltip: {
+      y: {
+        formatter: function (val) {
+          return val.toString()
+        },
+      },
+    },
+    title: {
+      text: `Last updated: ${lastUpdated.toLocaleTimeString()}`,
+      align: 'right',
+      style: {
+        fontSize: '12px',
+        color: '#666',
+      },
+    },
   }
 
   const barChartSeries = [
@@ -61,11 +98,41 @@ export default function StatsChart({ stats }: StatsChartProps) {
   const pieChartOptions: ApexOptions = {
     chart: {
       type: 'pie',
+      animations: {
+        enabled: true,
+        easing: 'easeinout',
+        speed: 800,
+      },
     },
     labels: ['Users', 'Posts', 'Comments'],
     colors: ['#3B82F6', '#10B981', '#F59E0B'],
     legend: {
       position: 'bottom',
+    },
+    responsive: [{
+      breakpoint: 480,
+      options: {
+        chart: {
+          width: 200,
+        },
+        legend: {
+          position: 'bottom',
+        },
+      },
+    }],
+    dataLabels: {
+      enabled: true,
+      formatter: function (val) {
+        return Math.round(Number(val)) + '%'
+      },
+    },
+    title: {
+      text: `Last updated: ${lastUpdated.toLocaleTimeString()}`,
+      align: 'right',
+      style: {
+        fontSize: '12px',
+        color: '#666',
+      },
     },
   }
 
@@ -80,15 +147,17 @@ export default function StatsChart({ stats }: StatsChartProps) {
           series={barChartSeries}
           type="bar"
           height={350}
+          key={`bar-${lastUpdated.getTime()}`} // Force re-render on update
         />
       </div>
-      <div className="bg-white p-6 rounded-lg shadow">
-        <h3 className="text-lg font-medium text-gray-900 mb-4">Data Distribution (Pie Chart)</h3>
+      <div className="bg-white/70 backdrop-blur-sm rounded-lg p-5 mb-4 shadow-sm">
+        <h3 className="text-lg font-medium text-green-900 mb-4">Data Distribution (Pie Chart)</h3>
         <Chart
           options={pieChartOptions}
           series={pieChartSeries}
           type="pie"
           height={350}
+          key={`pie-${lastUpdated.getTime()}`} // Force re-render on update
         />
       </div>
     </div>
