@@ -1,8 +1,8 @@
-Project description
+Project Description
 
 A responsive web application built with Next.js and TailwindCSS that fetches and displays data from JSON Placeholder API. The application features list of user profiles, post/comment management, and dynamic data visualization using ApexCharts.
 
-Setup and installation instructions
+Setup and Installation Instructions
 
 Next.js Setup and Installation
 |-npx create-next=app@latest
@@ -10,7 +10,7 @@ Next.js Setup and Installation
 |-npm install axios @tanstack/react-query apexcharts react-apexcharts
 |-npm run dev
 
-Team member contributions
+Team Member Contributions
 
 Azarcon, Jessa G. - Encoder, Presentor
 
@@ -29,4 +29,8 @@ https://webtech-finals.vercel.app/
 
 We decided to record our project to show the whole interface. 
 https://drive.google.com/file/d/1EMCduD40uiE35yE3KuXC0Jm5Dgpz8CC6/view?usp=sharing
+
+Video Presentation
+
+https://drive.google.com/file/d/1GSDSrTWuUg3-mGBf6CrxCicvwZmCBEJM/view?usp=drivesdk
 
